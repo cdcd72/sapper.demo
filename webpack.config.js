@@ -18,6 +18,16 @@ const fileLoaderRule = {
 	]
 };
 
+// 配置 Svelte Preprocess
+const preprocess = sveltePreprocess({
+	scss: {
+		includePaths: ['src'],
+	},
+	postcss: {
+		plugins: [],
+	},
+});
+
 module.exports = {
 	client: {
 		entry: { main: config.client.entry().main.replace(/\.js$/, '.ts') },
@@ -36,7 +46,7 @@ module.exports = {
 						options: {
 							dev,
 							hydratable: true,
-							preprocess: sveltePreprocess(),
+							preprocess: preprocess,
 							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
 						}
 					}
@@ -76,7 +86,7 @@ module.exports = {
 							css: false,
 							generate: 'ssr',
 							hydratable: true,
-							preprocess: sveltePreprocess(),
+							preprocess: preprocess,
 							dev
 						}
 					}
