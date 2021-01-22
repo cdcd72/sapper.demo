@@ -19,7 +19,8 @@
   >
 </p>
 
-<style type="text/scss">
+<style lang="scss">
+  @import "../styles/main";
   h1,
   figure,
   p {
@@ -37,7 +38,7 @@
   figure {
     margin: 0 0 1em 0;
     figcaption {
-      color: #2e01e0;
+      color: $test-color;
     }
   }
 

@@ -11,6 +11,14 @@ const dev = mode === 'development';
 const alias = { svelte: path.resolve('node_modules', 'svelte') };
 const extensions = ['.mjs', '.js', '.ts', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
+const preprocess = sveltePreprocess({
+	scss: {
+		includePaths: ['src'],
+	},
+	postcss: {
+		plugins: [],
+	},
+});
 const fileLoaderRule = {
 	test: /\.(png|jpe?g|gif)$/i,
 	use: [
@@ -36,7 +44,7 @@ module.exports = {
 						options: {
 							dev,
 							hydratable: true,
-							preprocess: sveltePreprocess(),
+							preprocess: preprocess,
 							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
 						}
 					}
@@ -76,7 +84,7 @@ module.exports = {
 							css: false,
 							generate: 'ssr',
 							hydratable: true,
-							preprocess: sveltePreprocess(),
+							preprocess: preprocess,
 							dev
 						}
 					}
