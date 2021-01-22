@@ -19,7 +19,7 @@
   >
 </p>
 
-<style lang="scss">
+<style type="text/scss">
   h1,
   figure,
   p {
