@@ -15,11 +15,10 @@
 
 <p>
   <strong
-    >Try editing this file (src/routes/index.svelte) to test live reloading.</strong
-  >
+    >Try editing this file (src/routes/index.svelte) to test live reloading.</strong>
 </p>
 
-<style lang="scss">
+<style>
   @import "../styles/main";
   h1,
   figure,
