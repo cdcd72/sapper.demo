@@ -12,11 +12,16 @@ const alias = { svelte: path.resolve('node_modules', 'svelte') };
 const extensions = ['.mjs', '.js', '.ts', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
 const preprocess = sveltePreprocess({
+	sourceMap: dev,
+    defaults: {
+		script: 'typescript',
+      	style: 'scss'
+	},
 	scss: {
 		includePaths: ['src'],
 	},
 	postcss: {
-		plugins: [],
+		plugins: [require('autoprefixer')()],
 	},
 });
 const fileLoaderRule = {
@@ -49,7 +54,11 @@ module.exports = {
 						}
 					}
 				},
-				fileLoaderRule
+				fileLoaderRule,
+				{
+					test: /\.css$/,
+					use: ["style-loader", "css-loader", "postcss-loader"]
+				}
 			]
 		},
 		mode,
@@ -89,7 +98,11 @@ module.exports = {
 						}
 					}
 				},
-				fileLoaderRule
+				fileLoaderRule,
+				{
+					test: /\.css$/,
+					use: ["style-loader", "css-loader", "postcss-loader"]
+				}
 			]
 		},
 		mode,
