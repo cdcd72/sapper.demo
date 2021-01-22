@@ -2,4 +2,8 @@
 
 **Sapper Playground**
 
-Sapper project (base on Svelte) with TypeScript & Sass support.
+Sapper demo project (base on Svelte) with TypeScript & Sass supported.
+
+## Usage
+
+`npm run dev`
